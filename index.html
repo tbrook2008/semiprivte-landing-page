@@ -20,18 +20,100 @@
             <div class="logo">SemiPrivate.</div>
             <div class="nav-links">
                 <a href="#philosophy">Philosophy</a>
+                <a href="#infrastructure">Infrastructure</a>
                 <a href="#systems">Systems</a>
                 <a href="#contact">Contact</a>
+                <button id="nav-portal-btn" class="nav-portal-btn">Client Portal</button>
             </div>
         </div>
     </nav>
 
     <main>
         <section id="hero" class="hero-section fade-in">
+            <!-- SVG Quantitative Background Grid & Equity Curve -->
+            <div class="hero-bg-wrapper">
+                <svg class="hero-bg-svg" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <!-- Grid Pattern -->
+                        <pattern id="quant-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+                            <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#222222" stroke-width="0.75" opacity="0.35"/>
+                            <circle cx="80" cy="80" r="1.5" fill="#b59a6d" opacity="0.25"/>
+                        </pattern>
+                        
+                        <!-- Gold Glow Gradient -->
+                        <radialGradient id="hero-radial-glow" cx="70%" cy="30%" r="60%">
+                            <stop offset="0%" stop-color="#b59a6d" stop-opacity="0.12"/>
+                            <stop offset="60%" stop-color="#b59a6d" stop-opacity="0.02"/>
+                            <stop offset="100%" stop-color="#070707" stop-opacity="0"/>
+                        </radialGradient>
+
+                        <!-- Line Chart Stroke Gradient -->
+                        <linearGradient id="line-grad-1" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#8c8c8c" stop-opacity="0.1"/>
+                            <stop offset="50%" stop-color="#b59a6d" stop-opacity="0.6"/>
+                            <stop offset="100%" stop-color="#cbb48b" stop-opacity="0.9"/>
+                        </linearGradient>
+
+                        <!-- Area Fill Gradient under Chart -->
+                        <linearGradient id="area-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#b59a6d" stop-opacity="0.08"/>
+                            <stop offset="100%" stop-color="#070707" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Radial Background Glow -->
+                    <rect width="100%" height="100%" fill="url(#hero-radial-glow)"/>
+
+                    <!-- Quantitative Coordinate Grid Overlay -->
+                    <rect width="100%" height="100%" fill="url(#quant-grid)"/>
+
+                    <!-- Candlestick / Orderbook Visual Pillars -->
+                    <g class="candlestick-bars" opacity="0.12">
+                        <rect x="250" y="450" width="12" height="120" fill="#b59a6d"/>
+                        <line x1="256" y1="410" x2="256" y2="600" stroke="#b59a6d" stroke-width="1.5"/>
+
+                        <rect x="420" y="380" width="12" height="180" fill="#b59a6d"/>
+                        <line x1="426" y1="340" x2="426" y2="610" stroke="#b59a6d" stroke-width="1.5"/>
+
+                        <rect x="600" y="320" width="12" height="210" fill="#b59a6d"/>
+                        <line x1="606" y1="280" x2="606" y2="570" stroke="#b59a6d" stroke-width="1.5"/>
+
+                        <rect x="780" y="240" width="12" height="260" fill="#b59a6d"/>
+                        <line x1="786" y1="190" x2="786" y2="540" stroke="#b59a6d" stroke-width="1.5"/>
+
+                        <rect x="960" y="180" width="12" height="310" fill="#b59a6d"/>
+                        <line x1="966" y1="130" x2="966" y2="530" stroke="#b59a6d" stroke-width="1.5"/>
+                    </g>
+
+                    <!-- Chart Area Fill -->
+                    <path class="chart-area" d="M 0 750 Q 300 680, 500 520 T 900 340 T 1440 120 L 1440 900 L 0 900 Z" fill="url(#area-grad)"/>
+
+                    <!-- Primary Wave / Equity Line Path -->
+                    <path class="chart-line-main equity-line" d="M 0 750 Q 300 680, 500 520 T 900 340 T 1440 120" fill="none" stroke="url(#line-grad-1)" stroke-width="2.5"/>
+
+                    <!-- Secondary Intersecting Line -->
+                    <path class="chart-line-sub" d="M 0 800 C 350 780, 450 600, 750 480 C 1050 360, 1200 250, 1440 200" fill="none" stroke="#8c8c8c" stroke-width="1" stroke-dasharray="6 6" opacity="0.3"/>
+
+                    <!-- Glowing Nodes at Data Points -->
+                    <g class="chart-nodes">
+                        <circle cx="500" cy="520" r="4" fill="#b59a6d" class="pulsing-node"/>
+                        <circle cx="500" cy="520" r="10" stroke="#b59a6d" stroke-width="1" fill="none" opacity="0.4" class="pulsing-ring"/>
+
+                        <circle cx="900" cy="340" r="4" fill="#b59a6d" class="pulsing-node"/>
+                        <circle cx="900" cy="340" r="10" stroke="#b59a6d" stroke-width="1" fill="none" opacity="0.4" class="pulsing-ring"/>
+
+                        <circle cx="1440" cy="120" r="5" fill="#cbb48b" class="pulsing-node"/>
+                    </g>
+                </svg>
+            </div>
+
             <div class="hero-content">
                 <h1 class="title">Precision in<br>Algorithmic Trading.</h1>
                 <p class="subtitle">Developing disciplined, rules-based quantitative systems for futures and equities markets. Removing emotion, executing with statistical edge.</p>
-                <a href="#systems" class="cta-button">View Active Systems</a>
+                <div class="hero-actions">
+                    <a href="#systems" class="cta-button">View Active Systems</a>
+                    <button id="hero-portal-btn" class="cta-button secondary-cta">Client Access</button>
+                </div>
             </div>
         </section>
 
@@ -57,43 +139,342 @@
             </div>
         </section>
 
+        <!-- Infrastructure & Tech Stack Section -->
+        <section id="infrastructure" class="infrastructure-section fade-in-up">
+            <div class="section-container">
+                <div class="section-header-wrap center">
+                    <span class="badge active" style="margin-bottom: 16px; display: inline-block;">High-Performance Telemetry</span>
+                    <h2 class="section-title center">Engineered for Latency & Scale</h2>
+                    <p class="section-subtitle">Our proprietary trading engine combines low-latency data feeds, parallelized backtesting pipelines, and automated risk kill-switches.</p>
+                </div>
+
+                <div class="tech-grid">
+                    <!-- Tech Card 1: Quantitative Engine -->
+                    <div class="tech-card">
+                        <div class="tech-icon-box">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <h3 class="tech-title">Python & Vectorized Math</h3>
+                        <p class="tech-desc">Core research and strategy modeling built on Python, NumPy, and PyTorch. Vectorized backtesting allows processing decades of tick data in seconds.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">NumPy</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">PyTorch</span>
+                        </div>
+                    </div>
+
+                    <!-- Tech Card 2: AWS Cloud Infrastructure -->
+                    <div class="tech-card">
+                        <div class="tech-icon-box">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
+                        </div>
+                        <h3 class="tech-title">AWS Cloud Infrastructure</h3>
+                        <p class="tech-desc">Hosted on co-located AWS compute clusters with redundant failover instances, ensuring continuous execution during volatility events.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">AWS EC2</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Redis</span>
+                        </div>
+                    </div>
+
+                    <!-- Tech Card 3: Direct API Execution -->
+                    <div class="tech-card">
+                        <div class="tech-icon-box">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <h3 class="tech-title">Rithmic & Interactive Brokers APIs</h3>
+                        <p class="tech-desc">Sub-millisecond order routing using Rithmic, Interactive Brokers API, and raw WebSocket Level-2 market data protocols.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Rithmic API</span>
+                            <span class="tech-tag">IBKR TWS</span>
+                            <span class="tech-tag">WebSockets</span>
+                        </div>
+                    </div>
+
+                    <!-- Tech Card 4: Automated Risk Engine -->
+                    <div class="tech-card">
+                        <div class="tech-icon-box">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3 class="tech-title">Real-time Risk Engine</h3>
+                        <p class="tech-desc">Hard-coded daily trailing loss limits, position caps, and real-time account telemetry with instant automated execution halts.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Kill-Switch</span>
+                            <span class="tech-tag">Max Drawdown</span>
+                            <span class="tech-tag">Auto-Hedge</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="systems" class="systems-section fade-in-up delay-1">
             <div class="section-container">
                 <h2 class="section-title center">Proprietary Systems</h2>
                 
                 <div class="systems-grid">
-                    <div class="system-card">
+                    <!-- System Card 1: Ivan Trader -->
+                    <div class="system-card" data-system="ivan">
                         <div class="card-header">
                             <h3>Ivan Trader</h3>
                             <span class="badge active">Active Deployment</span>
                         </div>
-                        <p class="system-desc">A specialized algorithmic bot designed for futures trading. Focuses on intraday momentum and mean reversion strategies with strict risk parameters and dynamic trailing stops.</p>
-                        <div class="system-metrics">
-                            <div class="metric">
-                                <span class="m-label">Asset Class</span>
-                                <span class="m-value">Futures</span>
+
+                        <!-- R5 Strategy Toggle Bar -->
+                        <div class="card-toggles" role="tablist">
+                            <button class="toggle-btn active" data-tab="overview">Strategy Overview</button>
+                            <button class="toggle-btn" data-tab="risk">Risk Parameters</button>
+                            <button class="toggle-btn" data-tab="trades">Recent Trades</button>
+                        </div>
+
+                        <!-- Tab Content 1: Overview -->
+                        <div class="tab-content tab-overview active">
+                            <p class="system-desc">A specialized algorithmic bot designed for futures trading. Focuses on intraday momentum and mean reversion strategies with strict risk parameters and dynamic trailing stops.</p>
+                            
+                            <div class="system-metrics">
+                                <div class="metric">
+                                    <span class="m-label">Target Monthly ROI</span>
+                                    <span class="m-value positive">+8.4%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="m-label">Max Drawdown</span>
+                                    <span class="m-value negative">-4.2%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="m-label">Sharpe Ratio</span>
+                                    <span class="m-value">2.45</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="m-label">Win Rate</span>
+                                    <span class="m-value">68.4%</span>
+                                </div>
                             </div>
-                            <div class="metric">
-                                <span class="m-label">Strategy</span>
-                                <span class="m-value">Intraday Momentum</span>
+
+                            <div class="chart-container">
+                                <div class="chart-header">
+                                    <span class="chart-title">6-Month Equity Growth ($100k Base)</span>
+                                    <span class="chart-legend"><span class="legend-dot"></span> Cumulative PnL</span>
+                                </div>
+                                <div class="chart-wrapper">
+                                    <canvas id="chart-ivan"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab Content 2: Risk Parameters -->
+                        <div class="tab-content tab-risk">
+                            <h4 class="tab-section-title">Institutional Risk Framework</h4>
+                            <div class="risk-grid">
+                                <div class="risk-card">
+                                    <span class="r-label">Daily Loss Limit</span>
+                                    <span class="r-val">$1,200 (2.4%)</span>
+                                </div>
+                                <div class="risk-card">
+                                    <span class="r-label">Max Position Sizing</span>
+                                    <span class="r-val">4 Contracts (NQ)</span>
+                                </div>
+                                <div class="risk-card">
+                                    <span class="r-label">Max Leverage</span>
+                                    <span class="r-val">4x Capital Base</span>
+                                </div>
+                                <div class="risk-card">
+                                    <span class="r-label">Trailing Stop Logic</span>
+                                    <span class="r-val">Dynamic Volatility (1.5x ATR)</span>
+                                </div>
+                                <div class="risk-card">
+                                    <span class="r-label">Target / Risk Ratio</span>
+                                    <span class="r-val">2.45 : 1 R/R</span>
+                                </div>
+                                <div class="risk-card">
+                                    <span class="r-label">Circuit Breaker</span>
+                                    <span class="r-val">3 Consecutive Loss Halt</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab Content 3: Recent Trades -->
+                        <div class="tab-content tab-trades">
+                            <h4 class="tab-section-title">Recent Execution Log</h4>
+                            <div class="table-responsive">
+                                <table class="trades-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Instrument</th>
+                                            <th>Type</th>
+                                            <th>Entry</th>
+                                            <th>Exit</th>
+                                            <th>PnL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>2026-08-04</td>
+                                            <td>MNQ (Futures)</td>
+                                            <td><span class="side-tag buy">BUY</span></td>
+                                            <td>20,145.50</td>
+                                            <td>20,210.00</td>
+                                            <td class="pnl positive">+$1,290.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2026-08-04</td>
+                                            <td>NQ (Futures)</td>
+                                            <td><span class="side-tag sell">SELL</span></td>
+                                            <td>20,280.00</td>
+                                            <td>20,225.00</td>
+                                            <td class="pnl positive">+$1,100.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2026-08-03</td>
+                                            <td>MNQ (Futures)</td>
+                                            <td><span class="side-tag buy">BUY</span></td>
+                                            <td>20,010.00</td>
+                                            <td>19,985.00</td>
+                                            <td class="pnl negative">-$500.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2026-08-01</td>
+                                            <td>NQ (Futures)</td>
+                                            <td><span class="side-tag buy">BUY</span></td>
+                                            <td>19,850.00</td>
+                                            <td>19,940.00</td>
+                                            <td class="pnl positive">+$1,800.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
 
-                    <div class="system-card">
+                    <!-- System Card 2: Topstep Bot V2 -->
+                    <div class="system-card" data-system="topstep">
                         <div class="card-header">
                             <h3>Topstep Bot V2</h3>
                             <span class="badge dev">In Development</span>
                         </div>
-                        <p class="system-desc">Architected specifically to navigate and pass proprietary firm evaluations. Implements highly conservative position sizing, extreme drawdown protection, and strict daily loss limits.</p>
-                        <div class="system-metrics">
-                            <div class="metric">
-                                <span class="m-label">Asset Class</span>
-                                <span class="m-value">Prop Futures</span>
+
+                        <!-- R5 Strategy Toggle Bar -->
+                        <div class="card-toggles" role="tablist">
+                            <button class="toggle-btn active" data-tab="overview">Strategy Overview</button>
+                            <button class="toggle-btn" data-tab="risk">Risk Parameters</button>
+                            <button class="toggle-btn" data-tab="trades">Recent Trades</button>
+                        </div>
+
+                        <!-- Tab Content 1: Overview -->
+                        <div class="tab-content tab-overview active">
+                            <p class="system-desc">Architected specifically to navigate and pass proprietary firm evaluations. Implements highly conservative position sizing, extreme drawdown protection, and strict daily loss limits.</p>
+                            
+                            <div class="system-metrics">
+                                <div class="metric">
+                                    <span class="m-label">Target Monthly ROI</span>
+                                    <span class="m-value positive">+12.1%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="m-label">Max Drawdown</span>
+                                    <span class="m-value negative">-6.5%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="m-label">Sharpe Ratio</span>
+                                    <span class="m-value">2.18</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="m-label">Win Rate</span>
+                                    <span class="m-value">64.2%</span>
+                                </div>
                             </div>
-                            <div class="metric">
-                                <span class="m-label">Focus</span>
-                                <span class="m-value">Capital Preservation</span>
+
+                            <div class="chart-container">
+                                <div class="chart-header">
+                                    <span class="chart-title">6-Month Equity Growth ($150k Base)</span>
+                                    <span class="chart-legend"><span class="legend-dot"></span> Cumulative PnL</span>
+                                </div>
+                                <div class="chart-wrapper">
+                                    <canvas id="chart-topstep"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab Content 2: Risk Parameters -->
+                        <div class="tab-content tab-risk">
+                            <h4 class="tab-section-title">Prop Evaluation Constraints</h4>
+                            <div class="risk-grid">
+                                <div class="risk-card">
+                                    <span class="r-label">Daily Loss Limit</span>
+                                    <span class="r-val">$1,000 (2.0%)</span>
+                                </div>
+                                <div class="risk-card">
+                                    <span class="r-label">Max Position Sizing</span>
+                                    <span class="r-val">2 Contracts (ES/NQ)</span>
+                                </div>
+                                <div class="risk-card">
+                                    <span class="r-label">Max Leverage</span>
+                                    <span class="r-val">2x Capital Base</span>
+                                </div>
+                                <div class="risk-card">
+                                    <span class="r-label">Trailing Drawdown Floor</span>
+                                    <span class="r-val">4.0% Prop Hard Stop</span>
+                                </div>
+                                <div class="risk-card">
+                                    <span class="r-label">Target / Risk Ratio</span>
+                                    <span class="r-val">2.10 : 1 R/R</span>
+                                </div>
+                                <div class="risk-card">
+                                    <span class="r-label">Circuit Breaker</span>
+                                    <span class="r-val">Daily Profit Lock ($2,500)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab Content 3: Recent Trades -->
+                        <div class="tab-content tab-trades">
+                            <h4 class="tab-section-title">Recent Execution Log</h4>
+                            <div class="table-responsive">
+                                <table class="trades-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Instrument</th>
+                                            <th>Type</th>
+                                            <th>Entry</th>
+                                            <th>Exit</th>
+                                            <th>PnL</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>2026-08-04</td>
+                                            <td>MES (Futures)</td>
+                                            <td><span class="side-tag buy">BUY</span></td>
+                                            <td>5,480.25</td>
+                                            <td>5,512.50</td>
+                                            <td class="pnl positive">+$1,612.50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2026-08-03</td>
+                                            <td>ES (Futures)</td>
+                                            <td><span class="side-tag sell">SELL</span></td>
+                                            <td>5,505.00</td>
+                                            <td>5,475.00</td>
+                                            <td class="pnl positive">+$1,500.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2026-08-02</td>
+                                            <td>MES (Futures)</td>
+                                            <td><span class="side-tag sell">SELL</span></td>
+                                            <td>5,490.00</td>
+                                            <td>5,508.00</td>
+                                            <td class="pnl negative">-$900.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2026-07-31</td>
+                                            <td>ES (Futures)</td>
+                                            <td><span class="side-tag buy">BUY</span></td>
+                                            <td>5,420.00</td>
+                                            <td>5,465.00</td>
+                                            <td class="pnl positive">+$2,250.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -115,6 +496,51 @@
         </div>
     </footer>
 
+    <!-- Client Portal UI Modal -->
+    <div id="login-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-container" role="dialog" aria-labelledby="modal-title">
+            <button id="modal-close" class="modal-close modal-close-btn" aria-label="Close Modal">&times;</button>
+            <div class="modal-header">
+                <span class="badge active">Private Beta</span>
+                <h3 id="modal-title" class="modal-title">Client Portal</h3>
+                <p class="modal-subtitle">Proprietary analytics and real-time execution telemetry for accredited partners.</p>
+            </div>
+            <div class="modal-body">
+                <div class="status-banner">
+                    <span class="status-dot"></span>
+                    <span>v2.4 Private Beta — Access by Invitation Only</span>
+                </div>
+                <form id="portal-form" class="portal-form">
+                    <div class="form-group">
+                        <label for="portal-name">Name / Entity</label>
+                        <input type="text" id="portal-name" required placeholder="e.g. Acme Capital Management">
+                    </div>
+                    <div class="form-group">
+                        <label for="portal-email">Institutional Email</label>
+                        <input type="email" id="portal-email" required placeholder="investor@firm.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="portal-type">Participant Category</label>
+                        <select id="portal-type">
+                            <option value="institutional">Institutional Investor</option>
+                            <option value="prop">Proprietary Trader</option>
+                            <option value="family-office">Family Office</option>
+                            <option value="quant">Quantitative Researcher</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="cta-button modal-submit-btn">Request Access</button>
+                </form>
+                <div id="form-feedback" class="form-feedback hidden">
+                    <div class="feedback-icon">✓</div>
+                    <h4>Request Submitted</h4>
+                    <p>Your inquiry has been logged. Our risk compliance team will contact qualified entities within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js Library via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
