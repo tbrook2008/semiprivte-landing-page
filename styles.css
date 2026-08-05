@@ -914,6 +914,228 @@ h1, h2, h3, h4 {
     100% { opacity: 1; }
 }
 
+/* Community Section & Live Signal Ticker */
+.community-section {
+    background-color: #070707;
+    border-top: 1px solid var(--surface-border);
+    padding: 120px 0;
+}
+
+.signal-ticker-box {
+    background-color: #0d0d0d;
+    border: 1px solid var(--surface-border);
+    border-radius: 4px;
+    margin-bottom: 60px;
+    overflow: hidden;
+}
+
+.ticker-header {
+    background-color: #121212;
+    border-bottom: 1px solid var(--surface-border);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticker-live-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pulse-red {
+    width: 8px;
+    height: 8px;
+    background-color: #ff4d4f;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ff4d4f;
+    animation: pulseRed 1.8s infinite;
+}
+
+@keyframes pulseRed {
+    0%, 100% { opacity: 0.3; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.ticker-meta {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+}
+
+.ticker-feed {
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-family: 'Inter', monospace, sans-serif;
+}
+
+.ticker-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.85rem;
+    padding: 10px 14px;
+    background-color: #080808;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 3px;
+    flex-wrap: wrap;
+}
+
+.t-time {
+    color: #666;
+    font-size: 0.75rem;
+}
+
+.t-bot {
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.t-sym {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.t-detail {
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    margin-left: auto;
+}
+
+/* Membership Tiers (Whop & Discord Cards) */
+.tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    align-items: stretch;
+}
+
+.tier-card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--surface-border);
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 4px;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.tier-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(181, 154, 109, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.tier-card.featured {
+    border-color: var(--accent);
+    background-color: #141414;
+    box-shadow: 0 0 30px rgba(181, 154, 109, 0.1);
+}
+
+.tier-badge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.featured-badge {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.tier-name {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+.tier-price {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.tier-price span {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tier-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.tier-features {
+    list-style: none;
+    margin-bottom: 40px;
+    flex-grow: 1;
+}
+
+.tier-features li {
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tier-btn {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tier-btn.primary {
+    background-color: var(--accent);
+    color: var(--bg-color);
+    border: 1px solid var(--accent);
+    font-weight: 600;
+}
+
+.tier-btn.primary:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+}
+
+.tier-btn.secondary {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--surface-border);
+}
+
+.tier-btn.secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
 /* Responsive */
 @media (max-width: 900px) {
     .split-layout {
