@@ -160,15 +160,15 @@ document.addEventListener('DOMContentLoaded', () => {
         chartInstances['chart-ivan'] = new Chart(ctxIvan, {
             type: 'line',
             data: {
-                labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                labels: ['Mar 1', 'Mar 15', 'Apr 1', 'Apr 15', 'May 1', 'May 15', 'Jun 1', 'Jun 15', 'Jul 1', 'Jul 15', 'Aug 1', 'Aug 15'],
                 datasets: [{
                     label: 'Ivan Trader Equity',
-                    data: [100000, 104200, 108500, 106100, 112400, 118400],
+                    data: [100000, 101254, 100840, 102450, 105820, 104210, 106950, 105100, 108340, 110250, 109400, 114280],
                     borderColor: '#b59a6d',
                     borderWidth: 2.5,
                     backgroundColor: createGradient(ctxIvan),
                     fill: true,
-                    tension: 0.4,
+                    tension: 0.2,
                     pointBackgroundColor: '#b59a6d',
                     pointBorderColor: '#070707',
                     pointHoverRadius: 6
@@ -185,15 +185,15 @@ document.addEventListener('DOMContentLoaded', () => {
         chartInstances['chart-topstep'] = new Chart(ctxTopstep, {
             type: 'line',
             data: {
-                labels: ['Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                labels: ['Mar 1', 'Mar 15', 'Apr 1', 'Apr 15', 'May 1', 'May 15', 'Jun 1', 'Jun 15', 'Jul 1', 'Jul 15', 'Aug 1', 'Aug 15'],
                 datasets: [{
                     label: 'Topstep Bot V2 Equity',
-                    data: [150000, 158500, 153200, 166400, 172100, 186200],
+                    data: [150000, 153240, 151800, 155400, 154210, 158900, 162100, 159800, 164500, 168200, 165400, 172150],
                     borderColor: '#b59a6d',
                     borderWidth: 2.5,
                     backgroundColor: createGradient(ctxTopstep),
                     fill: true,
-                    tension: 0.4,
+                    tension: 0.2,
                     pointBackgroundColor: '#b59a6d',
                     pointBorderColor: '#070707',
                     pointHoverRadius: 6
