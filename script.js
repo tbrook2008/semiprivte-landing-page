@@ -241,4 +241,61 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    // ==========================================
+    // Fetch Live Data from Supabase
+    // ==========================================
+    async function fetchLiveTrades() {
+        const supabaseUrl = 'https://ynuigooqexcmoruvwalz.supabase.co/rest/v1/trade_history?select=*&order=trade_date.desc&limit=20';
+        const anonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InludWlnb29xZXhjbW9ydXZ3YWx6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYwMzA5MDUsImV4cCI6MjEwMTYwNjkwNX0.BrfBqqzLaL43lLU6ShgK_UubIeIeJlGA0hBl629NGLk';
+        
+        try {
+            const response = await fetch(supabaseUrl, {
+                headers: {
+                    'apikey': anonKey,
+                    'Authorization': `Bearer ${anonKey}`
+                }
+            });
+            if (!response.ok) return;
+            const data = await response.json();
+            if (!data || data.length === 0) return; // Keep placeholders if no live data
+
+            const ivanBody = document.getElementById('ivan-trades-body');
+            const topstepBody = document.getElementById('topstep-trades-body');
+            
+            let ivanRows = '';
+            let topstepRows = '';
+
+            data.forEach(trade => {
+                const date = new Date(trade.trade_date).toISOString().split('T')[0];
+                const sideClass = trade.side.toUpperCase() === 'BUY' ? 'buy' : 'sell';
+                const pnlClass = trade.pnl >= 0 ? 'positive' : 'negative';
+                const pnlSign = trade.pnl >= 0 ? '+' : '';
+                
+                const rowHtml = `
+                    <tr>
+                        <td>${date}</td>
+                        <td>${trade.asset}</td>
+                        <td><span class="side-tag ${sideClass}">${trade.side}</span></td>
+                        <td>${trade.entry_price || '-'}</td>
+                        <td>${trade.exit_price || '-'}</td>
+                        <td class="pnl ${pnlClass}">${pnlSign}$${Math.abs(trade.pnl).toFixed(2)}</td>
+                    </tr>
+                `;
+
+                if (trade.bot_name === 'AI Trader') {
+                    ivanRows += rowHtml;
+                } else {
+                    topstepRows += rowHtml;
+                }
+            });
+
+            if (ivanBody && ivanRows !== '') ivanBody.innerHTML = ivanRows;
+            if (topstepBody && topstepRows !== '') topstepBody.innerHTML = topstepRows;
+
+        } catch (e) {
+            console.error('Failed to fetch live trades:', e);
+        }
+    }
+
+    fetchLiveTrades();
 });
